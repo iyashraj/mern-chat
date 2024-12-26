@@ -4,7 +4,11 @@ import {axiosInstance} from '../lib/axios'
 interface AuthState {
   authUser: string | null;
   isCheckingAuth: boolean;
-  checkAuth : any
+  checkAuth : ()=> any;
+  isSigningIn: boolean;
+  isLogingIn : boolean;
+  isUpdatingProfile : false;
+  signup : () => void
 }
 
 export const useAuthStore = create<AuthState>((set) => ({
@@ -23,5 +27,8 @@ export const useAuthStore = create<AuthState>((set) => ({
     } finally{
         set({isCheckingAuth: false})
     }
-  }
+  },
+  signup : async (data) => {
+
+  } 
 }));
