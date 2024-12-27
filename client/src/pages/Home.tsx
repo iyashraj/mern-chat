@@ -1,8 +1,8 @@
 import React from 'react'
 
-const Home = () => {
+const Home : React.FC = () => {
   return (
-    <div>Home</div>
+    <div> : React.FC</div>
   )
 }
 

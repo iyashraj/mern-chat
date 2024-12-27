@@ -9,7 +9,7 @@ interface SignUpState {
   password: string;
 }
 
-const SignUp = () => {
+const SignUp : React.FC = () => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [signUpData, setSignUpData] = useState<SignUpState>({
     fullName: "",
