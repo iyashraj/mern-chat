@@ -25,6 +25,7 @@ const App: React.FC = () => {
   }
 
   const ProtectedRoute = ({ children }: { children: React.ReactElement }) => {
+    console.log("jeee",children)
     return authUser ? children : <Navigate to={"/login"} />;
   };
 
@@ -33,6 +34,7 @@ const App: React.FC = () => {
   }: {
     children: React.ReactElement;
   }) => {
+    console.log("jeeeeeeeeeeeeee", children)
     return !authUser ? children : <Navigate to={"/"} />;
   };
 

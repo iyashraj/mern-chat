@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { useAuthStore } from "../store/useAuthStore";
 import { Eye, EyeOff, Loader2, Lock, Mail, MessageSquare, User } from "lucide-react";
-import { Link } from "react-router-dom";
+import { data, Link } from "react-router-dom";
 import AuthImagePattern from "../components/AuthImagePattern";
+import { signUpFormValidator } from "../lib/formValidator";
 
 interface SignUpState {
   fullName: string;
@@ -18,12 +19,14 @@ const SignUp : React.FC = () => {
     password: "",
   });
 
-  const { isSigningIn, signup } = useAuthStore();
-
-  const validateSignupForm = () => {};
+  const { isSigningUp, signup } = useAuthStore();
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    const isFormValid = signUpFormValidator(data)
+    if(isFormValid == true){
+      signup(signUpData)
+    }
   };
 
   console.log(signUpData, "data --> ");
@@ -122,9 +125,9 @@ const SignUp : React.FC = () => {
               </div>
             </div>
 
-            <button type="submit" className="btn btn-primary w-full" disabled={isSigningIn}>
+            <button type="submit" className="btn btn-primary w-full" disabled={isSigningUp} onClick={(e)=> handleSubmit(e)}>
               {
-                isSigningIn ? (
+                isSigningUp ? (
                   <>
                   <Loader2 className="size-5 animate-spin" /></>
                 ) : ("Create Account")

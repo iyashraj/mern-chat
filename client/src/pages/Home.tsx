@@ -2,7 +2,7 @@ import React from 'react'
 
 const Home : React.FC = () => {
   return (
-    <div> : React.FC</div>
+    <div> Welcome to the home page</div>
   )
 }
 

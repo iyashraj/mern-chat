@@ -8,7 +8,7 @@ router.post("/signup", signupHandler)
 
 router.post("/login", loginHandler)
 
-router.post("/logout", logoutHandler)
+router.get("/logout", logoutHandler)
 
 router.put("/update-profile", protectedRoute, updateProfileHandler)
 
